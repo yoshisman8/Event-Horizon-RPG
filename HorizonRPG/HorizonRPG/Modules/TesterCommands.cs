@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace HorizonRPG.Modules
 {
+
     public class TesterCommands : ModuleBase<SocketCommandContext>
     {
         [Command("Ping")]
@@ -17,14 +18,14 @@ namespace HorizonRPG.Modules
         [Command("About")]
         public async Task About()
         {
-            var GLW = Context.Client.GetUser(207269807173795840);
             var Vyk = Context.Client.GetUser(165212654388903936);
 
             var builder = new EmbedBuilder()
                 .WithAuthor(Context.Client.CurrentUser)
                 .WithTimestamp(DateTime.Now)
+				.WithColor(Color.DarkBlue)
                 .WithThumbnailUrl(Context.Client.CurrentUser.GetAvatarUrl())
-                .WithDescription("Project Event Horizon RPG\nCoded by: " + Vyk.Mention+ ".\nSetting by: " + GLW.Mention+".");
+                .WithDescription("Project Event Horizon RPG\nCoded, Designed and Hosted by: " + Vyk.Mention+ ".");
             await ReplyAsync("", embed: builder.Build());
         }
     }

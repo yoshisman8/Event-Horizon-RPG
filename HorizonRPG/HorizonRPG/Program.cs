@@ -49,8 +49,7 @@ namespace DiscordBot
                 .AddSingleton<LogService>()
                 // Extra
                 .AddSingleton(_config)
-                .AddSingleton(new LiteDatabase(@"Data/Database.db"))
-                .AddSingleton<Random>()
+                .AddSingleton(new LiteDatabase(Path.Combine("Data","Database.db")))
                 // Add additional services here...
                 .BuildServiceProvider();
         }
